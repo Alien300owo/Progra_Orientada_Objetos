@@ -2,9 +2,9 @@
 // En este codigo esta:
 //	1. Ciclo de seguridad
 //  2. Procedimiento de la clase staff
-#import <iostream>
-#import <string>
-#import "Clase_staff_v1.h"
+#include <iostream>
+#include <string>
+#include "Clase_staff_v1.h"
 
 using namespace std;
 
@@ -15,8 +15,12 @@ bool acceso = false;
 int tamano_lista = 3;
 char opcion;
 
+
 // codigo main	
 int main(){
+	/***
+	string contra="";
+	string user="";
 	//Arreglos (Listas del sistema de seguridad que tiene a los usurios y contrasenas)
 	string usuario_list[tamano_lista];
 	usuario_list[0] = "Aragorn";
@@ -46,31 +50,44 @@ int main(){
 			}
 		}
 	}
+	***/
 	
+	int cantidad_empleados = 3;
+	staff perfil_empleado[cantidad_empleados];
 	//Menu de la aplicacion (menu en el que muestra las distintas opciones y si el usuario ingresa alguna,)
 	//						(se realiza la accion que pide el usuario)
 	do{
-	    cout << "a)Agregar nuevo \nb)Consultar \nc)Modificar \nd)Salarios y Bonos \ne)Salir \nOpcion: ";
+	    cout << "a)Agregar nuevo \nb)Consultar \nc)Salarios y Bonos \nd)Modificar \ne)Salir \nOpcion: ";
 	    cin >> opcion;
 	
 	    switch (opcion){
 		    case 'a':{
-				cout << "Consiguio acceso a" << endl;
+		    	for (int i = 0; i < cantidad_empleados; ++i){
+				staff empleado;
+				empleado.datos_empleado();
+				perfil_empleado[i] = empleado;
+				}
 		        break;
 		    }
 		
 		    case 'b':{
-	  			cout << "Consiguio acceso b"  << endl;
+		    	int empleado_id = 0;
+		    	cout << "Empleado id: " << endl;
+		    	cin >> empleado_id;
+		    	perfil_empleado[empleado_id].Consultar();
 		        break;
 		    }
 		
 		    case 'c':{
-		    	cout << "Consiguio acceso c"  << endl;
+		    	int empleado_id = 0;
+		    	cout << "Empleado id: " << endl;
+		    	cin >> empleado_id;
+		    	perfil_empleado[empleado_id].salarios_y_bonos();
 		        break;
 		    }
 		    
 		    case 'd':{
-		    	cout << "Consiguio acceso d"  << endl;
+		    	
 		        break;
 		    }
 		
